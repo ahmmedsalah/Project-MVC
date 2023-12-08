@@ -1,0 +1,57 @@
+﻿@model EmployeeViewModel
+@{
+    var Departments = new SelectList(ViewBag.Departments, "Id", "Name");
+}
+<h1>Are You Sure To Delete This Employee</h1>
+<form asp-action="Delete">
+    <div class="form-group form-check  " style="margin-left:-15px">
+        <label class="col-form-label" asp-for="ImageName" style="display:block"></label>
+        <img src="~/files/images/@Html.DisplayFor(M=>Model.ImageName)" class="img-circle " style="border-radius: 50%; height: 100px; width: 100px; margin-top:10px" alt="Employee Image" />
+    </div>
+    <input type="hidden" asp-for="Id" /> 
+    <input hidden asp-for="ImageName" />
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" readonly />
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Age"></label>
+        <input class="form-control" asp-for="Age" readonly />
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Address"></label>
+        <input class="form-control" asp-for="Address" readonly />   
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Salary"></label>
+        <input class="form-control" asp-for="Salary" readonly />
+    </div>
+    <div class="form-group">
+        <label  class="col-form-label" asp-for="IsActive"></label>
+        <input disabled class="form-control" asp-for="IsActive" readonly />
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" readonly />
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber" readonly />
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="HireDate"></label>
+        <input class="form-control" asp-for="HireDate" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="DepartmentId"></label>
+        <select disabled asp-for="DepartmentId" class="form-control" asp-items="Departments">
+            @* <option value="@null"></option> *@
+        </select>
+    </div>
+   <input type="submit" value="Delete" class="btn btn-danger" />|
+   <a asp-action="Index" class="btn btn-light">Cancel</a>
+
+</form>

@@ -1,0 +1,74 @@
+﻿@model EmployeeViewModel
+@{
+	var Departments = new SelectList(ViewBag.Departments, "Id", "Name");
+}
+
+<h1> Employee Details </h1>
+<form asp-action="Detials">
+	<div class="form-group form-check  " style="margin-left:-15px">
+		<label class="col-form-label" asp-for="ImageName" style="display:block"></label>
+
+		<img src="~/files/images/@Html.DisplayFor(M=>Model.ImageName)" class="img-circle " style="border-radius: 50%; height: 100px; width: 100px; margin-top:10px" alt="Employee Image" />
+	</div>
+
+	<div class="form-group">
+		<label class="col-form-label" asp-for="Name"></label>
+		<input class="form-control" asp-for="Name" readonly />
+
+	</div>
+	<div class="form-group">
+		<label class="col-form-label" asp-for="Age"></label>
+		<input class="form-control" asp-for="Age" readonly />
+
+	</div>
+	<div class="form-group">
+		<label class="col-form-label" asp-for="Address"></label>
+		<input class="form-control" asp-for="Address" readonly />
+
+	</div>
+	<div class="form-group">
+		<label class="col-form-label" asp-for="Salary"></label>
+		<input class="form-control" asp-for="Salary" readonly />
+	</div>
+	<div class="form-group">
+		<label class="col-form-label" asp-for="IsActive"></label>
+		<input disabled class="form-control" asp-for="IsActive" readonly />
+	</div>
+	<div class="form-group">
+		<label class="col-form-label" asp-for="Email"></label>
+		<input class="form-control" asp-for="Email" readonly />
+	</div>
+	<div class="form-group">
+		<label class="col-form-label" asp-for="PhoneNumber"></label>
+		<input class="form-control" asp-for="PhoneNumber" readonly />
+	</div>
+	<div class="form-group">
+		<label class="col-form-label" asp-for="HireDate"></label>
+		<input class="form-control" asp-for="HireDate" readonly />
+	</div>
+	@* <div class="form-group">
+		<label asp-for="DepartmentId"></label>
+		<div style="    height: 38px;
+
+    background: #eeeded;
+    border-radius: 6px;
+    border: 1px solid #80808042;
+    padding: 5px 15px;">
+			manager
+		</div>
+		@* <select disabled asp-for="DepartmentId" class="form-control" asp-items="Departments"  >
+		@* <option value="@null"></option> 
+	</div> 
+	*@
+
+	<div class="form-group">
+		<label asp-for="DepartmentId"></label>
+		 <select disabled asp-for="DepartmentId" class="form-control" asp-items="Departments" >
+		 <option value="@null"></option> 
+		 </select>
+		 </div>
+
+	<a asp-action="Index" class="btn btn-primary">Back to list </a>
+</form>
+
+@* <input type="file" class="form-control" asp-for="ImageName"  readonly /> *@

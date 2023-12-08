@@ -1,0 +1,20 @@
+﻿@model IdentityRole
+@{
+	ViewData["Title"] = "Detials";
+}
+
+<h1> Role Details </h1>
+<form asp-action="Detials">
+
+	<div class="form-group">
+		<label class="col-form-label" asp-for="Name"></label>
+		<input class="form-control" asp-for="Name" readonly />
+
+	</div>
+
+	<a asp-action="Index" class="btn btn-primary">Back to list </a>
+</form>
+
+@section ValidationScriptSection {
+	<partial name="_ValidationScriptsPartial" />
+    }  
